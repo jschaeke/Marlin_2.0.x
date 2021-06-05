@@ -135,8 +135,8 @@
 #ifdef ESP_WIFI
   #ifdef ESP3D_30
     #define SERIAL_PORT_3 3
-    #define NUM_SERIAL 3
-    #define BAUDRATE_3 250000
+    // #define NUM_SERIAL 3
+    // #define BAUDRATE_3 250000
   #else
     #define SERIAL_PORT_2 1
     #define NUM_SERIAL 2
@@ -2791,7 +2791,7 @@
 //
 // Generic TFT with detailed options
 //
-#define TFT_DRIVER ST7796
+// #define TFT_DRIVER ST7796
 //#define TFT_GENERIC
 #if ENABLED(TFT_GENERIC)
   // :[ 'AUTO', 'ST7735', 'ST7789', 'ST7796', 'R61505', 'ILI9328', 'ILI9341', 'ILI9488' ]
