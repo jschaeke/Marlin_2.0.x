@@ -2702,6 +2702,13 @@
     #define  Z_SLAVE_ADDRESS 0
     #define E0_SLAVE_ADDRESS 0
   #endif
+  #ifdef SKR14T
+   #define  X_SLAVE_ADDRESS 0
+   #define  Y_SLAVE_ADDRESS 0
+   #define  Z_SLAVE_ADDRESS 0
+   #define E0_SLAVE_ADDRESS 0
+   #define E1_SLAVE_ADDRESS 0
+  #endif  
   //#define X2_SLAVE_ADDRESS 0
   //#define Y2_SLAVE_ADDRESS 0
   //#define Z2_SLAVE_ADDRESS 0
@@ -2722,7 +2729,7 @@
    * Use for drivers that do not use a dedicated enable pin, but rather handle the same
    * function through a communication line such as SPI or UART.
    */
-  #define SOFTWARE_DRIVER_ENABLE
+  //#define SOFTWARE_DRIVER_ENABLE
 
   /**
    * TMC2130, TMC2160, TMC2208, TMC2209, TMC5130 and TMC5160 only

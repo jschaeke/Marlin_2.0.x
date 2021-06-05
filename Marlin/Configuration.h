@@ -109,7 +109,7 @@
  *
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-#define SERIAL_PORT -1
+#define SERIAL_PORT 0
 
 /**
  * Serial Port Baud Rate
@@ -130,7 +130,7 @@
  * Currently Ethernet (-2) is only supported on Teensy 4.1 boards.
  * :[-2, -1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
- #define SERIAL_PORT_2 0
+ #define SERIAL_PORT_2 -1
 
 #ifdef ESP_WIFI
   #ifdef ESP3D_30
@@ -166,6 +166,9 @@
   #ifdef Q5
     #define MOTHERBOARD BOARD_MKS_ROBIN_NANO
   #endif
+  #ifdef SKR14T
+    #define MOTHERBOARD BOARD_BTT_SKR_V1_4_TURBO
+  #endif
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
@@ -174,6 +177,9 @@
 #endif
 #ifdef Q5
   #define CUSTOM_MACHINE_NAME "δDelta Q5"
+#endif
+#ifdef SKR14
+  #define CUSTOM_MACHINE_NAME "ΔDelta on SR14T"
 #endif
 
 // Printer's unique ID, used by some programs to differentiate between machines.
@@ -1419,7 +1425,16 @@
     #define INVERT_E0_DIR false
   #endif
 #endif
-
+#if ENABLED(SKR14T)
+  #define INVERT_X_DIR true
+  #define INVERT_Y_DIR true
+  #define INVERT_Z_DIR true
+  #ifdef INV_EXT
+    #define INVERT_E0_DIR true
+  #else
+    #define INVERT_E0_DIR false
+  #endif
+#endif
 // @section extruder
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.

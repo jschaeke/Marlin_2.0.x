@@ -20,11 +20,11 @@
 /*_______________________1___________________________*/
 //==================== Hardware =====================//
 /*-------------Motherboard/Printer-(1 CHOICE)-------*/
-#define QQSP                       //  (Default_QQS) env = flsun_hispeedv1
+//#define QQSP                       //  (Default_QQS) env = flsun_hispeedv1
 //#define Q5                         // env = mks_nano_robin35 (change in platformio.ini file or 
-                                     // click on the "Default" icon on the bottom edge of the window and 
+#define SKR14T                                     // click on the "Default" icon on the bottom edge of the window and 
                                      // choose "mks_robin_nano35").
-#define MOTHERBOARD BOARD_BTT_SKR_V1_4_TURBO
+
 /*________________________2___________________________*/
           /*-----Type Drivers-(1 CHOICE)-----*/
 /* MODE STOCK for QQS & Q5 */
@@ -59,7 +59,7 @@
         * = Driver TFT Color (1 CHOICE)=
         * ==============================
         */
-#define MKS_ROBIN_TFT32            //  (Default) Mks_Robin_TFT_V2.0
+//#define MKS_ROBIN_TFT32            //  (Default) Mks_Robin_TFT_V2.0
 //#define MKS_TS35_V2_00             // Only for NanoV2 or V3
 //#define TFT_GENERIC                // For the user who haven't the same screen.
 
@@ -95,7 +95,7 @@
  * ====== Default eStep (T=397/422)/(B=417)/(H+702) ========
  * =========================================================
  */
-//#define INV_EXT                    // Uncommment to reverse direction for BMG/Sherpa.
+#define INV_EXT                    // Uncommment to reverse direction for BMG/Sherpa.
 
 // BMG Extruder (B) Extruder step(417).
 //#define BMG                        //(B) Uncommment for BMG Left/Right.
