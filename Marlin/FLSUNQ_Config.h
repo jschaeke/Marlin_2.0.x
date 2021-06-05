@@ -95,7 +95,7 @@
  * ====== Default eStep (T=397/422)/(B=417)/(H+702) ========
  * =========================================================
  */
-#define INV_EXT                    // Uncommment to reverse direction for BMG/Sherpa.
+// #define INV_EXT                    // Uncommment to reverse direction for BMG/Sherpa.
 
 // BMG Extruder (B) Extruder step(417).
 //#define BMG                        //(B) Uncommment for BMG Left/Right.
