@@ -109,7 +109,7 @@
  *
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-#define SERIAL_PORT 3
+#define SERIAL_PORT -1
 
 /**
  * Serial Port Baud Rate
@@ -123,20 +123,20 @@
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
  */
 #define BAUDRATE 250000
-#define BAUD_RATE_GCODE     // Enable G-code M575 to set the baud rate
+//#define BAUD_RATE_GCODE     // Enable G-code M575 to set the baud rate
 
 /**
  * Select a secondary serial port on the board to use for communication with the host.
  * Currently Ethernet (-2) is only supported on Teensy 4.1 boards.
  * :[-2, -1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
- //#define SERIAL_PORT_2 -1
+ #define SERIAL_PORT_2 0
 
 #ifdef ESP_WIFI
   #ifdef ESP3D_30
-    #define SERIAL_PORT_2 1
-    #define NUM_SERIAL 2
-    #define BAUDRATE_2 115200
+    #define SERIAL_PORT_3 3
+    #define NUM_SERIAL 3
+    #define BAUDRATE_3 250000
   #else
     #define SERIAL_PORT_2 1
     #define NUM_SERIAL 2
@@ -1079,6 +1079,9 @@
  *      - normally-closed switches to GND and D32.
  *      - normally-open switches to 5V and D32.
  */
+#define Z_MIN_PIN P0_10
+
+
 //#define Z_MIN_PROBE_PIN 32 // Pin 32 is the RAMPS default
 
 /**
@@ -2445,7 +2448,7 @@
 // RepRapDiscount FULL GRAPHIC Smart Controller
 // https://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller
 //
-//#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
+#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
 
 //
 // K.3D Full Graphic Smart Controller
@@ -2773,6 +2776,7 @@
 //
 // Generic TFT with detailed options
 //
+#define TFT_DRIVER ST7796
 //#define TFT_GENERIC
 #if ENABLED(TFT_GENERIC)
   // :[ 'AUTO', 'ST7735', 'ST7789', 'ST7796', 'R61505', 'ILI9328', 'ILI9341', 'ILI9488' ]
@@ -2849,7 +2853,7 @@
   //#define TOUCH_CALIBRATION_Y -8981
   //#define TOUCH_OFFSET_X        -43
   //#define TOUCH_OFFSET_Y        257
-  //#define TOUCH_ORIENTATION TOUCH_LANDSCAPE
+  #define TOUCH_ORIENTATION TOUCH_LANDSCAPE
 
   #if BOTH(TOUCH_SCREEN_CALIBRATION, EEPROM_SETTINGS)
     #define TOUCH_CALIBRATION_AUTO_SAVE // Auto save successful calibration values to EEPROM

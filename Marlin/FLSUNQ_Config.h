@@ -14,7 +14,8 @@
 * -Comment/Uncomment line to add or modify some options. 
 *  Default is for QQS and it's uncommented ;-)
 */
-//#define XP
+#define XP
+#define XP1
 //#define DBUG
 /*_______________________1___________________________*/
 //==================== Hardware =====================//
@@ -23,11 +24,11 @@
 //#define Q5                         // env = mks_nano_robin35 (change in platformio.ini file or 
                                      // click on the "Default" icon on the bottom edge of the window and 
                                      // choose "mks_robin_nano35").
-
+#define MOTHERBOARD BOARD_BTT_SKR_V1_4_TURBO
 /*________________________2___________________________*/
           /*-----Type Drivers-(1 CHOICE)-----*/
 /* MODE STOCK for QQS & Q5 */
-#define STOCK                      // (S) (Default_QQS) For 4xA4988(green or red color).
+//#define STOCK                      // (S) (Default_QQS) For 4xA4988(green or red color).
                                      // (S) (Default_Q5) For 3xTMC2208+1xA4988.
 
 /* MODE STANDALONE XYZ+E for QQS & Q5 */
@@ -36,7 +37,7 @@
 
 /* MODE UART XYZ+E for QQS & Q5 */
 //#define Q_UART8                    //(U8) 4xTMC2208 Note: remove on your printer the module WIFI and wire your TMC.
-//#define Q_UART9                    //(U9) 4xTMC2209 Note: remove on your printer the module WIFI and wire your TMC.
+#define Q_UART9                    //(U9) 4xTMC2209 Note: remove on your printer the module WIFI and wire your TMC.
 
 /* SPECIAL MODE UART XYZ+E for QQS-Pro */
 //#define QQS_UARTH                  //(UH) Mode special 2209 wiring with one I/O pin (Remove module ESP12)
@@ -58,15 +59,16 @@
         * = Driver TFT Color (1 CHOICE)=
         * ==============================
         */
-#define MKS_ROBIN_TFT32            //  (Default) Mks_Robin_TFT_V2.0
+//#define MKS_ROBIN_TFT32            //  (Default) Mks_Robin_TFT_V2.0
 //#define MKS_TS35_V2_0
 //#define TFT_GENERIC                // For the user who haven't the same screen.
 
                 /*--- Choice UI TFT ----*/
-#define TFT_COLOR_UI               //(C) (Default) UI MARLIN
+//#define TFT_COLOR_UI               //(C) (Default) UI MARLIN
 //#define TFT_CLASSIC_UI             //(F) UI STANDARD (type LCD)
 
-#define TOUCH_SCREEN               //(C/F) (Default) UI MARLIN
+//#define TOUCH_SCREEN               //(C/F) (Default) UI MARLIN
+#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
 
 /* ======================================//
 * === Note:Languages already integrated==// 
@@ -80,7 +82,7 @@
                   /*----  Modules -----*/
 
 #define MKS_WIFI                   //(W) (Default_QQS) Module ESP8266/ESP12
-//#define ESP3D_30                   //(w) Enable firmware ESP3D v3.0 (ESP8266/ESP12)
+#define ESP3D_30                   //(w) Enable firmware ESP3D v3.0 (ESP8266/ESP12)
 
 /*For LedStrip which need an external power source on Vcc pin.*/
 //#define NEOPIXEL_LED               //(N) Use port GPIO Wifi module (PC7)
@@ -106,7 +108,7 @@
       * ========= 1 CHOICE)============
       * ===============================
       */
-
+//#define TFT_REPRAP
 //#define DELTA_HOME_TO_SAFE_ZONE    // Option to move down after homing to a height where XYZ movement is unconstrained.
 #define PREHEAT_BEFORE_PROBING     //(P) (Default) Run a PreHeat bed at 60°C
 //#define PREHEAT_BEFORE_LEVELING    
@@ -157,7 +159,7 @@
 //#define HOST_ACTION_COMMANDS        // Action Command Prompt support Message on Octoprint
 
 //------ Support for MeatPack G-code compression (OCTOPRINT)--------//
-#define MEATPACK_ON_SERIAL_PORT_1   //(M) With connection USB
+//#define MEATPACK_ON_SERIAL_PORT_1   //(M) With connection USB
 //#define MEATPACK_ON_SERIAL_PORT_2   // With other connection like Tx/Rx Wifi socket.
 
 /** ========================================
@@ -171,10 +173,10 @@
 #ifdef MKS_WIFI
   #define ESP_WIFI
   #ifdef ESP3D_30
-    #define MKS_WIFI_MODULE           // Work with TFT_LVGL_UI(Modern UI using LVGL-MKS)
+    //#define MKS_WIFI_MODULE           // Work with TFT_LVGL_UI(Modern UI using LVGL-MKS)
     #define USES_MKS_WIFI_FUNCTION    // Bin transfert MKS for ESP3D firmware v3.0 or others
   #endif
-  //#define BINARY_FILE_TRANSFER     // Bin transfert for ESP3D firmware v2.1 or others.
+  #define BINARY_FILE_TRANSFER     // Bin transfert for ESP3D firmware v2.1 or others.
                                      // Not compatible with the MEATPACK option. 
 #endif
 
@@ -286,17 +288,17 @@
     #endif
 #endif
 //Add definition for UART9 for Q5
-#if BOTH(Q5, Q_UART8)||BOTH(Q5, Q_UART9)
-    #define X_SERIAL_TX_PIN                   PA10  // RXD1
-    #define X_SERIAL_RX_PIN                   PA10  // RXD1
-    #define Y_SERIAL_TX_PIN                   PA9   // TXD1
-    #define Y_SERIAL_RX_PIN                   PA9   // TXD1
-    #define Z_SERIAL_TX_PIN                   PC7   // IO1
-    #define Z_SERIAL_RX_PIN                   PC7   // IO1
-    #define E0_SERIAL_TX_PIN                  PC13  // IO0
-    #define E0_SERIAL_RX_PIN                  PC13  // IO0
-    #define TMC_BAUD_RATE                    19200
-#endif
+// #if BOTH(Q5, Q_UART8)||BOTH(Q5, Q_UART9)
+//     #define X_SERIAL_TX_PIN                   PA10  // RXD1
+//     #define X_SERIAL_RX_PIN                   PA10  // RXD1
+//     #define Y_SERIAL_TX_PIN                   PA9   // TXD1
+//     #define Y_SERIAL_RX_PIN                   PA9   // TXD1
+//     #define Z_SERIAL_TX_PIN                   PC7   // IO1
+//     #define Z_SERIAL_RX_PIN                   PC7   // IO1
+//     #define E0_SERIAL_TX_PIN                  PC13  // IO0
+//     #define E0_SERIAL_RX_PIN                  PC13  // IO0
+//     #define TMC_BAUD_RATE                    19200
+// #endif
 // Note:
 // HardwareSerial with one pins for four drivers
 // Compatible with TMC2209. Provides best performance.
