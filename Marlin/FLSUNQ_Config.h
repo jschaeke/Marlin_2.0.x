@@ -219,7 +219,7 @@
   #elif ENABLED(BMG)
     #define EXTRUDER_STEPS 441  // Extruder BMG(Left/Right)
   #else
-    #define EXTRUDER_STEPS 405  // Extruder TITAN(Default)
+    #define EXTRUDER_STEPS 420  // Extruder TITAN(Default)
   #endif
 #endif
 //Jerk
