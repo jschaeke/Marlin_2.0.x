@@ -14,7 +14,7 @@
 * -Comment/Uncomment line to add or modify some options. 
 *  Default is for QQS and it's uncommented ;-)
 */
-#define XP
+//#define XP
 #define XP1
 //#define DBUG
 /*_______________________1___________________________*/
@@ -288,17 +288,17 @@
     #endif
 #endif
 //Add definition for UART9 for Q5
-// #if BOTH(Q5, Q_UART8)||BOTH(Q5, Q_UART9)
-//     #define X_SERIAL_TX_PIN                   PA10  // RXD1
-//     #define X_SERIAL_RX_PIN                   PA10  // RXD1
-//     #define Y_SERIAL_TX_PIN                   PA9   // TXD1
-//     #define Y_SERIAL_RX_PIN                   PA9   // TXD1
-//     #define Z_SERIAL_TX_PIN                   PC7   // IO1
-//     #define Z_SERIAL_RX_PIN                   PC7   // IO1
-//     #define E0_SERIAL_TX_PIN                  PC13  // IO0
-//     #define E0_SERIAL_RX_PIN                  PC13  // IO0
-//     #define TMC_BAUD_RATE                    19200
-// #endif
+#if BOTH(Q5, Q_UART8)||BOTH(Q5, Q_UART9)
+    #define X_SERIAL_TX_PIN                   PA10  // RXD1
+    #define X_SERIAL_RX_PIN                   PA10  // RXD1
+    #define Y_SERIAL_TX_PIN                   PA9   // TXD1
+    #define Y_SERIAL_RX_PIN                   PA9   // TXD1
+    #define Z_SERIAL_TX_PIN                   PC7   // IO1
+    #define Z_SERIAL_RX_PIN                   PC7   // IO1
+    #define E0_SERIAL_TX_PIN                  PC13  // IO0
+    #define E0_SERIAL_RX_PIN                  PC13  // IO0
+    #define TMC_BAUD_RATE                    19200
+#endif
 // Note:
 // HardwareSerial with one pins for four drivers
 // Compatible with TMC2209. Provides best performance.
