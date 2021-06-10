@@ -3,7 +3,7 @@
 *================= With pins_FLSUN_HiSPEED.h BOARD (QQS-Pro)================
 *================= With pins_MKS_ROBIN_NANO.h BOARD (Q5)====================
 *===========================================================================
-*
+*                         MARLIN_v2.0.8.2
 * For a Delta printer start with one of the configuration files in the
 * config/examples/delta/FLSUN/ directory and customize for your machine.
 * 
@@ -12,7 +12,7 @@
 * TIPS/NOTES:
 * -For TMC mode UART, look the "pins_FLSUN_HISPEED.h" file (src/pins/stm32f1/) for more information to wire.
 * -Comment/Uncomment line to add or modify some options. 
-*  Default is for QQS and it's uncommented ;-)
+*  Default is actif for QQS and it's uncommented ;-)
 */
 //#define XP
 #define XP1
@@ -32,15 +32,15 @@
                                      // (S) (Default_Q5) For 3xTMC2208+1xA4988.
 
 /* MODE STANDALONE XYZ+E for QQS & Q5 */
-//#define ALL_TMC8                    //(8) For 4xTMC2208_STANDALONE
-//#define ALL_TMC9                    //(9) For 4xTMC2209_STANDALONE
+//#define ALL_TMC8                     //(8) For 4xTMC2208_STANDALONE
+//#define ALL_TMC9                     //(9) For 4xTMC2209_STANDALONE
 
 /* MODE UART XYZ+E for QQS & Q5 */
 //#define Q_UART8                    //(U8) 4xTMC2208 Note: remove on your printer the module WIFI and wire your TMC.
 #define Q_UART9                    //(U9) 4xTMC2209 Note: remove on your printer the module WIFI and wire your TMC.
 
 /* SPECIAL MODE UART XYZ+E for QQS-Pro */
-//#define QQS_UARTH                  //(UH) Mode special 2209 wiring with one I/O pin (Remove module ESP12)
+//#define QQS_UARTH                     //(UH) Mode special 2209 wiring with one I/O pin (Remove module ESP12)
 
 /**========================2bis=================================//
  * -- If you have an other stepper driver for EXTRUDER----------//
@@ -49,7 +49,7 @@
  * -- TMC2208_STANDALONE/TMC2209_STANDALONE/TMC2208/TMC2209. ---//
  * =============================================================//
  */
-//#define DRIVER_EXT A4988  //TMC2209_STANDALONE //LV8729//
+//#define DRIVER_EXT A4988//TMC2209_STANDALONE //TMC2209  // LV8729//
 //Only WITH Q5 older stepper(A4988/DRV8825/LV8729)
 //#define INV_EXT
 
@@ -75,8 +75,8 @@
 * ==in the menu UI_COLOR(fr, de, es, it)=//
 * =======================================//
 */
-//#define LCD_LANGUAGE en            // Change for your country ('bg':'Bulgarian', 'ca':'Catalan', 'cz':'Czech', 'da':'Danish', 'el':'Greek', 'fi':'Finnish', 'hr':'Croatian', 'hu':'Hungarian', 'jp_kana':'Japanese', 'nl':'Dutch', 'pl':'Polish', 'pt_br':'Portuguese (Brazilian)', 'ro':'Romanian', 'ru':'Russian', 'sk':'Slovak', 'sv':'Swedish', 'tr':'Turkish', 'uk':'Ukrainian', 'vi':'Vietnamese', 'zh_CN':'Chinese (Simplified)', etc)
-//#define BOOT_MARLIN_LOGO_SMALL     // Small Logo Marlin to reduce de binary. Comment to have normal LOGO(Default).
+//#define LCD_LANGUAGE en                // Change for your country ('bg':'Bulgarian', 'ca':'Catalan', 'cz':'Czech', 'da':'Danish', 'el':'Greek', 'fi':'Finnish', 'hr':'Croatian', 'hu':'Hungarian', 'jp_kana':'Japanese', 'nl':'Dutch', 'pl':'Polish', 'pt_br':'Portuguese (Brazilian)', 'ro':'Romanian', 'ru':'Russian', 'sk':'Slovak', 'sv':'Swedish', 'tr':'Turkish', 'uk':'Ukrainian', 'vi':'Vietnamese', 'zh_CN':'Chinese (Simplified)', etc)
+//#define BOOT_MARLIN_LOGO_SMALL         // Small Logo Marlin to reduce de binary. Comment to have normal LOGO(Default).
 
 /*__________________________4______________________________*/
                   /*----  Modules -----*/
@@ -85,7 +85,7 @@
 #define ESP3D_30                   //(w) Enable firmware ESP3D v3.0 (ESP8266/ESP12)
 
 /*For LedStrip which need an external power source on Vcc pin.*/
-//#define NEOPIXEL_LED               //(N) Use port GPIO Wifi module (PC7)
+//#define NEOPIXEL_LED                   //(N) Use port GPIO Wifi module (PC7)
 
 /**=========================================================
  * =========================================================
@@ -95,11 +95,11 @@
  * ====== Default eStep (T=397/422)/(B=417)/(H+702) ========
  * =========================================================
  */
-// #define INV_EXT                    // Uncommment to reverse direction for BMG/Sherpa.
+//#define INV_EXT                        // Uncommment to reverse direction for BMG/Sherpa.
 
 // BMG Extruder (B) Extruder step(417).
-//#define BMG                        //(B) Uncommment for BMG Left/Right.
-//#define SHERPA                     //(h) Uncommment for Mini-Sherpa.
+//#define BMG                            //(B) Uncommment for BMG Left/Right.
+//#define SHERPA                         //(h) Uncommment for Mini-Sherpa.
 
 /*__________________________5_____________________________*/
       /** =============================
@@ -108,22 +108,20 @@
       * ========= 1 CHOICE)============
       * ===============================
       */
-//#define TFT_REPRAP
-//#define DELTA_HOME_TO_SAFE_ZONE    // Option to move down after homing to a height where XYZ movement is unconstrained.
-#define PREHEAT_BEFORE_PROBING     //(P) (Default) Run a PreHeat bed at 60°C
+
+//#define DELTA_HOME_TO_SAFE_ZONE      // Option to move down after homing to a height where XYZ movement is unconstrained.
+#define PREHEAT_BEFORE_PROBING         //(P) (Default) Run a PreHeat bed at 60°C
 //#define PREHEAT_BEFORE_LEVELING    
-#define AUTO_BED_LEVELING_UBL      //(U) (Default) Wizard UBL includes. 
-#define UBL_HILBERT_CURVE          // (Default)
+#define AUTO_BED_LEVELING_UBL          //(U) (Default) Wizard UBL includes. 
 
 //--------IF YOUR USED ABL, DISABLE "SPECIAL MENU DELTA"= #define CUSTOM_MENU_MAIN
-//#define AUTO_BED_LEVELING_BILINEAR //(A)
+//#define AUTO_BED_LEVELING_BILINEAR   //(A)
 
-
-/*__________________________6__________________________*/
-    //======Many options for Modules: ===========//
-#define LIN_ADVANCE                //(L) (Default2209) with K=0 For TMC_UART2208 prefer mode spreadCycle(by TFT menu) or commented if problem.
-#define ARC_SUPPORT                //(R) (Default)
-#define POWER_LOSS_RECOVERY        // (Default) Continue print after Power-Loss.
+/*_______________________6____________________*/
+    //======Many options for Modules: ========//
+#define LIN_ADVANCE                           //(L) (Default2209) with K=0 For TMC_UART2208 prefer mode spreadCycle(by TFT menu) or commented if problem.
+#define ARC_SUPPORT                           //(R) (Default)
+#define POWER_LOSS_RECOVERY                   // (Default) Continue print after Power-Loss.
 
 //=================================================================================//
 //======================== End_Hardware ===========================================//
@@ -135,28 +133,23 @@
  * = like (Prontoface/Octoprint/HostRepertier/Astoprint)=
  * ====== Choice add menu on TFT: (OPT) =================
  */
-#define DELTA_CALIBRATION_MENU     //  (Default) Auto for CLASSIC and COLOR.
-#define CUSTOM_MENU_MAIN           //  (Default) Main Menu UBL: "Menu Special Delta".
-#define PID_EDIT_MENU              //  (Default) Tune PID Bed and Nozzle.
-#define PID_AUTOTUNE_MENU          //  (Default) Tune auto PID.
-#define LCD_INFO_MENU              //  (Default) Informations printer.
-#define PROBE_OFFSET_WIZARD        //  (Default) Add Menu to manage the Z_OffSet.
-//#define PREHEAT_SHORTCUT_MENU_ITEM // Add preheat/temperature menu (first page)
-//#define CANCEL_OBJECTS             // Add menu "Cancel Objet"
+#define CUSTOM_MENU_MAIN               //  (Default) Main Menu UBL: "Menu Special Delta".
+#define PROBE_OFFSET_WIZARD            //  (Default) Add Menu to manage the Z_OffSet.
+#define ADD_MENUS                      //  (Default) Add menu PID, DELTA, INFO
 
 // For user who change their nozzle thermistor by another one ex: "ATC Semitec 104GT-2" = 5 
 //#define TEMP_SENSOR_0 13             // uncomment with a good number/type.
 
 // ---Expe tools Levelling-------
-//#define LEVEL_BED_CORNERS
 //#define G26_MESH_VALIDATION          // Print Mesh Validation Pattern tool(By menu).
+//#define LEVEL_BED_CORNERS
 
 /*__________________________8__________________________*/
 /** ===================================================
 * == Option for Host (OCTOPRINT,REPETIER,PRONTERFACE,ESP3D, etc)
 * ======================================================
 */
-//#define HOST_ACTION_COMMANDS        // Action Command Prompt support Message on Octoprint
+//#define HOST_ACTION_COMMANDS          // Action Command Prompt support Message on Octoprint
 
 //------ Support for MeatPack G-code compression (OCTOPRINT)--------//
 //#define MEATPACK_ON_SERIAL_PORT_1   //(M) With connection USB
@@ -171,7 +164,7 @@
 */
 // 
 #ifdef MKS_WIFI
-  #define ESP_WIFI
+  #define ESP_WIF
   #ifdef ESP3D_30
     //#define MKS_WIFI_MODULE           // Work with TFT_LVGL_UI(Modern UI using LVGL-MKS)
     #define USES_MKS_WIFI_FUNCTION    // Bin transfert MKS for ESP3D firmware v3.0 or others
@@ -187,10 +180,24 @@
   #define TFT_RES_320x240
 #endif
 
+//= For users who dont have a terminal =//
+#ifdef ADD_MENUS
+  #define DELTA_CALIBRATION_MENU        //  (Default) Auto for CLASSIC and COLOR.
+  #define PID_EDIT_MENU                 //  (Default) Tune PID Bed and Nozzle.
+  #define PID_AUTOTUNE_MENU             //  (Default) Tune auto PID.
+  #define LCD_INFO_MENU                 //  (Default) Informations printer.
+  //#define PREHEAT_SHORTCUT_MENU_ITEM  // Add preheat/temperature menu (first page)
+  //#define CANCEL_OBJECTS              // Add menu "Cancel Objet"
+#endif
+
 // Options for Modules Hardware
 #ifdef NEOPIXEL_LED
-  #define LED_CONTROL_MENU            // To control LedStrip.
+  #define LED_CONTROL_MENU              // To control LedStrip.
 #endif
+
+//For other PROBE like IR, TouchMI, Nozzle
+//#define X_PROBE                       // Set to invert the logic of the PROBE.
+//#define Z_OFFSET -2.5                 // Set your own OffSet
 
 /** -------------------------------------------------
  * Special mod: Disable MKS_WIFI/TFT part/DELTA_MENU 
@@ -206,21 +213,29 @@
  */
 // Variables to calculate steps and current
 //eSteps
-#ifdef BMG
-  #define EXTRUDER_STEPS 417    // Extruder BMG(Left/Right)
-#else
+#ifndef EXTRUDER_STEPS
   #ifdef SHERPA
     #define EXTRUDER_STEPS 702  // Extruder Mini-Sherpa
+  #elif ENABLED(BMG)
+    #define EXTRUDER_STEPS 441  // Extruder BMG(Left/Right)
   #else
     #define EXTRUDER_STEPS 405  // Extruder TITAN(Default)
   #endif
 #endif
-
+//Jerk
+#ifndef XYZJERK
+  #define XYZJERK  10
+#endif
+#ifndef EJERK
+  #define EJERK     5
+#endif
 //Z_OffSet
-#ifndef Q5
-  #define Z_OFFSET       -16.2
-#else
-  #define Z_OFFSET       -18
+#ifndef Z_OFFSET
+  #ifndef Q5
+    #define Z_OFFSET       -16.2
+  #else
+    #define Z_OFFSET       -18
+  #endif
 #endif
 
 // TMC
@@ -228,13 +243,13 @@
   #define XYZ_CURRENT       900
 #endif
 #ifndef XYZ_CURRENT_HOME
-  #define XYZ_CURRENT_HOME  800
+  #define XYZ_CURRENT_HOME  600
 #endif  
 #ifndef E_CURRENT
   #ifdef SHERPA
-    #define E_CURRENT         300
+    #define E_CURRENT       300
   #else
-    #define E_CURRENT         850
+    #define E_CURRENT       850
   #endif
 #endif
 
